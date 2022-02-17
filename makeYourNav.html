@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>Test2 Make Your Navigation Bar</title>
         <meta charset="utf-8">
@@ -56,7 +56,6 @@
             <button name="try3">Try It</button>
         </form><br>
         <br><button><a href="activities.html">Back</a></button>
-        <script src="https://ivideos-math.000webhostapp.com/libraries/midvid.js"></script>
         <script type="text/javascript">
             var input1 = document.textboxes.text1;
             var input2 = document.textboxes.text2;
@@ -67,15 +66,15 @@
             var firstNav = document.getElementById('first');
             var secondNav = document.getElementById('second');
             var thirdNav = document.getElementById('third');
-            addEvent(try1, "click", function(e){
+            try1.addEventListener("click", function(e){
                 e.preventDefault();
                 firstNav.innerHTML = input1.value;
             });
-            addEvent(try2, "click", function(e){
+            try2.addEventListener("click", function(e){
                 e.preventDefault();
                 secondNav.innerHTML = input2.value;
             });
-            addEvent(try3, "click", function(e){
+            try3.addEventListener("click", function(e){
                 e.preventDefault();
                 thirdNav.innerHTML = input3.value;
             });
