@@ -9,3 +9,5 @@
 - [ ] 1.8
 - [ ] 1.9
 - [ ] 2.0
+
+Guess what? Version 1.5 will be a big update!
