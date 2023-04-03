@@ -12,5 +12,5 @@ These are the versions that have been released so far:
 - [ ] 1.9
 - [ ] 2.0
 
-The latest beta version is here: https://david373289.github.io/test2-beta-versions/
-Guess what? Version 1.5 will be a big update!
+Check the beta versions here: https://david373289.github.io/test2-beta-versions/
+Guess what? Version 1.5 will be a big update and it is coming soon!
