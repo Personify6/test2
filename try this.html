@@ -1,27 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="neutral-mode">
     <head>
         <title>Background Changer</title>
         <meta charset="utf-8">
+        <link rel="icon" href="images/icon.png">
+        <link rel="stylesheet" type="text/css" href="style/styles.css">
         <style type="text/css">
-            body{
-                font-size: 25px;
-                font-family: arial;
+            .dark-mode p {
+                background: black;
+                color: white;
             }
-            button{
-                font-size: 25px;
-            }
-            button a{
-                text-decoration: none;
+            .light-mode p {
+                background: white;
                 color: black;
             }
         </style>
+        <script src="scripts/settings.js"></script>
     </head>
     <body>
+        <form name="try_this">
+            <p please style="background: white; color: black;">Please enter a hexadecimal pattern:</p>
+            <input name="code" title="A hashtag followed by six or three numbers or letters from A-F (Examples: #FE3152, #45124A)" pattern="#[a-fA-F0-9]{3}|#[a-fA-F0-9]{6}">
+            <button type="submit">Try It!</button>
+        </form><br>
         <button><a href="index.html">Back</a></button>
         <script type="text/javascript">
-            var prompt = prompt("Please enter a hexadecimal code. Examples: #fdfdfd, #123456, #123432. It cannot contain letters from g-z and must start with a hashtag(#). It also must have 6 or 3 numbers/valid letters(a - f) after the hashtag");
-            document.body.style.backgroundColor = prompt;
+            var tryhuh = document.querySelector("p[please]");
+            tryhuh.style.color = "black";
+            document.try_this.addEventListener("submit", (e) => {
+                e.preventDefault();
+                document.documentElement.style.backgroundColor = document.try_this.code.value;
+            });
         </script>
     </body>
 </html>

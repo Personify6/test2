@@ -1,25 +1,12 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" class="neutral-mode">
     <head>
         <meta charset="utf-8">
         <title>Customize your Page!</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-        <style type="text/css">
-            *{
-                font-family: 'Source Sans Pro', sans-serif;
-                font-size: 25px;
-            }
-            button{
-                font-size: 25px;
-            }
-            button a{
-                text-decoration: none;
-                color: black;
-            }
-        </style>
+        <link rel="icon" href="images/icon.png">
+        <link rel="stylesheet" type="text/css" href="style/styles.css">
+        <script src="scripts/settings.js"></script>
     </head>
     <body>
         <h1>(Only Supported By HTML5)</h1>
@@ -41,8 +28,8 @@
             var buttons = document.getElementsByTagName("button");
             form.addEventListener("submit", (e) => {
                 e.preventDefault();
-                document.body.style.backgroundColor = form.background.value;
-                document.body.style.color = form.textcolor.value;
+                document.documentElement.style.backgroundColor = form.background.value;
+                document.documentElement.style.color = form.textcolor.value;
                 for(var i = 0; i < buttons.length; i++){
                     buttons[i].style.backgroundColor = form.buttonbackground.value;
                     buttons[i].style.color = form.buttontext.value;

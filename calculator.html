@@ -3,12 +3,11 @@
     <head>
         <meta charset="utf-8">
         <title>Calculator</title>
+        <link rel="icon" href="images/icon.png">
+        <link rel="stylesheet" type="text/css" href="style/styles.css">
         <style type="text/css">
-            *{
-                font-size: 25px;
-            }
             form{
-                width: 20.75%;
+                width: 21%;
             }
             input[type="button"]{
                 width: 50px;
@@ -22,9 +21,6 @@
                 border: 3px solid #000;
                 background: #00f;
             }
-            body{
-                background: #f00;
-            }
             #C{
                 width: 100%;
             }
@@ -35,7 +31,11 @@
                 text-decoration: none;
                 color: #fff;
             }
+            .calculator_back a {
+                color: white !important;
+            }
         </style>
+        <script src="scripts/settings.js"></script>
     </head>
     <body>
         <form name="cal">
@@ -62,7 +62,7 @@
             <input type="button" value="3" onclick="cal.display.value += '3'">
             <input type="button" value="+" onclick="cal.display.value += '+'">
             <br><br>
-            <input type="button" title="Number in percentage form" value="%" onclick="cal.display.value = (cal.display.value)/100">
+            <input type="button" value="%" onclick="cal.display.value = (cal.display.value)/100">
             <input type="button" value="0" onclick="cal.display.value += '0'">
             <input type="button" value="." onclick="cal.display.value += '.'">
             <input type="button" value="=" onclick="cal.display.value = eval(cal.display.value)">
@@ -70,6 +70,6 @@
             <input type="button" id="C" value="C" onclick="cal.display.value = ''">
         </form>
         <br><br><br>
-        <button><a href="index.html">Back</a></button>
+        <button><a href="index.html" class="calculator_back">Back</a></button>
     </body>
 </html>

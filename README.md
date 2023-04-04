@@ -5,7 +5,7 @@ These are the versions that have been released so far:
 - [x] 1.2
 - [x] 1.3
 - [x] 1.4
-- [ ] 1.5
+- [x] 1.5
 - [ ] 1.6
 - [ ] 1.7
 - [ ] 1.8
@@ -13,4 +13,4 @@ These are the versions that have been released so far:
 - [ ] 2.0
 
 Check the beta versions here: https://david373289.github.io/test2-beta-versions/
-Guess what? Version 1.5 will be a big update and it is coming soon!
+I hope Test2 v1.6 is also big just like version 1.5.

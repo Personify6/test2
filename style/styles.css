@@ -1,0 +1,66 @@
+:root{
+    --default-font: Arial;
+}
+*{
+    font-family: var(--default-font);
+    font-size: 25px;
+}
+button{
+    font-size: 25px;
+}
+button a{
+    text-decoration: none;
+    color: black;
+}
+h1{
+    font-size: 2.2rem;
+}
+[settings]{
+    float: right;
+    position: relative;
+    bottom: 20px;
+}
+.dark-mode {
+    background-color: #000;
+}
+
+.dark-mode, .dark-mode a {
+    color: white;
+}
+
+.dark-mode button:not(.calculator_back) a {
+    color: black;
+}
+
+.light-mode button:not(.calculator_back) a {
+    color: black;
+}
+
+.light-mode a {
+    color: #00f; 
+}
+
+.light-mode {
+    color: #000;
+}
+
+.neutral-mode {
+    background-color: #6B6B6B;
+}
+.calculator_back{
+    color: white !important;
+}
+
+.light-mode .calculator_back a, .dark-mode .calculator_back a{
+    color: white !important;
+}
+#version_number {
+    font-size: 0.8em;
+}
+
+.dark-mode p {
+    color: white;
+}
+.light-mode p {
+    color: black;
+}
