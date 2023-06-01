@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
         <title>Ball Bouncer</title>
         <link rel="icon" href="images/icon.png">
@@ -18,9 +19,15 @@
     </head>
     <body>
         <label for="ball_speed">Ball Speed:</label><input name="ball_speed" id="ball_speed" type="number" value="3"><br>
+
+        <label for="ball_size">Ball Size:</label><input name="ball_size" id="ball_size" type="number" value="7"><br>
+
         <label for="canvas_background">Canvas Background:</label><input type="color" name="canvas_background" id="canvas_background" value="#444464"><br>
+
         <label for="ball_background">Ball Colour:</label><input type="color" name="ball_background" id="ball_background" value="#ff0000"><br><br>
+
         <button id="apply_styles">Update</button><br><br>
+        
         <canvas id="ball_area" width="600" height="300"></canvas>
         <br><br><br>
         <button><a href="index.html" class="calculator_back">Back</a></button>
@@ -28,6 +35,7 @@
             var canvas = document.getElementById("ball_area");
             var ctx = canvas.getContext("2d");
             var ballSpeed = parseInt(document.getElementById("ball_speed").value, 10);
+            var ballSize = parseInt(document.getElementById("ball_size").value, 10);
             var canvasBG = document.getElementById("canvas_background").value;
             var ballColour = document.getElementById("ball_background").value;
             var updateButton = document.getElementById("apply_styles");
@@ -36,11 +44,20 @@
             var y = canvas.height / 2;
             var dx = ballSpeed;
             var dy = ballSpeed * -1;
-            var ballRadius = 7;
+            var ballRadius = ballSize;
             var xNegative = false;
 
-            updateButton.addEventListener("click", () => {
-                ballSpeed = parseInt(document.getElementById("ball_speed").value, 10);
+            updateButton.addEventListener("click", (e) => {
+                var speed_value = parseInt(document.getElementById("ball_speed").value, 10);
+                var radius_value = parseInt(document.getElementById("ball_size").value, 10)
+                if(speed_value < 1 || radius_value < 1){
+                    alert("At least one of your values are 0 or lower.");
+                } else if(radius_value > 70 || speed_value > 50){
+                    alert("Your ball size or speed is too large.");
+                } else{
+                    ballSpeed = speed_value;
+                    ballRadius = radius_value;
+                }
                 canvasBG = document.getElementById("canvas_background").value;
                 ballColour = document.getElementById("ball_background").value;
                 dx = dx < 0 ? -ballSpeed : ballSpeed;
