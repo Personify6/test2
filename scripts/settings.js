@@ -3,7 +3,7 @@
 */
 
 
-var version = "1.6.1";
+var version = "1.6.2";
 // This is executed before the DOM is ready
 var darkModeToggle = localStorage.getItem("dark-mode");
 var turnOn = document.getElementById("dark-yes");
