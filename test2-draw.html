@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Test2 Draw</title>
+        <link rel="icon" href="images/icon.png">
+        <link rel="stylesheet" type="text/css" href="style/styles.css">
+        <script src="scripts/settings.js"></script>
+        <style type="text/css">
+            [dev-message]{
+                color: #f0f;
+                font-size: 1.1em;
+                text-decoration: underline;
+            }
+            .dark-mode canvas{
+                border: 2px solid white;
+            }
+            .light-mode canvas{
+                border: 2px solid black;
+            }
+            #brush_size{
+                width: 30%;
+            }
+            canvas{
+                overflow: hidden;
+                margin: 0;
+                padding: 0;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <noscript>
+            <div class="noscriptoverlay"></div>
+            <h2 class="noscripttext">This website uses JavaScript, which you have not enabled. Please enable JavaScript to use this website.</h2>
+        </noscript>
+
+        <button><a id="backButton">Back</a></button><br><br>
+        
+        <div id="toolbar">
+            <label for="brush_col">Brush Colour:</label>
+            <input type="color" name="brush_col" id="brush_col" value="#ffffff">
+
+            <label for="brush_size">Brush Size:</label>
+            <input type="range" id="brush_size" name="brush_size" value="10" min="1">
+            <span id="brush_val">10</span>
+
+            <button id="clear_button">Clear</button>
+        </div>
+        <canvas id="main_canvas"></canvas>
+        
+        <script type="text/javascript">
+            var canvas = document.getElementById("main_canvas");
+            var ctx = canvas.getContext("2d");
+            var clear = document.getElementById("clear_button");
+            var brushSize = document.getElementById("brush_size");
+            var brushCol = document.getElementById("brush_col");
+            var defaultCol = localStorage.getItem("dark-mode") == "on" ? "#ffffff" : "#000000";
+            var fillBG = localStorage.getItem("dark-mode") == "on" ? "#000000" : "#ffffff";
+            var brushVal = document.getElementById("brush_val");
+            var backButton = document.getElementById("backButton");
+            let painting = false;
+
+            brushCol.value = defaultCol;
+
+            canvas.width = window.innerWidth - 80;
+            canvas.height = window.innerHeight;
+
+            ctx.fillStyle = fillBG;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            function draw(e) {
+                const canvasRect = canvas.getBoundingClientRect();
+                const xPos = e.clientX - canvasRect.left;  // Adjust X relative to canvas
+                const yPos = e.clientY - canvasRect.top;   // Adjust Y relative to canvas
+
+                if (!painting) return;
+
+                ctx.strokeStyle = brushCol.value;
+                ctx.lineWidth = brushSize.value;
+                ctx.lineCap = "round";
+                ctx.lineTo(xPos, yPos);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(xPos, yPos);
+            }
+
+            backButton.addEventListener("click", () => {
+                var alert1 = confirm("Are you sure you want to exit?");
+                if(alert1){
+                    location.href = "index.html";
+                }
+            });
+
+            function stop(e){
+                painting = false;
+                ctx.beginPath();
+            }
+
+            brushSize.addEventListener("input", () => {
+                brushVal.textContent = brushSize.value;
+            });
+
+            clear.addEventListener("click", () => {
+                ctx.fillStyle = fillBG;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.beginPath();
+            });
+
+            canvas.addEventListener("mousedown", () => {
+                painting = true;
+            });
+
+            canvas.addEventListener("mouseup", stop);
+            canvas.addEventListener("mouseleave", stop);
+            canvas.addEventListener("mousemove", draw);
+
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth - 80;
+                canvas.height = window.innerHeight;
+            });
+        </script>
+    </body>
+</html>

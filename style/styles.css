@@ -71,7 +71,7 @@ h2, h2 span{
     text-decoration: underline;
 }
 .toggle_option:hover{
-    cursor: pointer;
+    cursor: pointer !important;
 }
 .light-mode input[type="text"], .light-mode input[type="number"]{
     border: 3px solid black !important;
@@ -85,4 +85,29 @@ h2, h2 span{
 }
 [removal]{
     color: red !important;
+}
+.noscripttext{
+    text-decoration: underline;
+    font-weight: bold;
+    color: red;
+    background-color: black;
+    position: fixed;
+    z-index: 100000;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    text-align: center;
+}
+.noscriptoverlay {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 1000;
+}
+[message-id="1"]{
+    font-style: italic;
+    font-size: 0.87em;
 }

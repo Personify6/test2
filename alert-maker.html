@@ -53,7 +53,10 @@
         </style>
     </head>
     <body>
-        <h3>(You need the latest version of your browser to run this)</h3>
+        <noscript>
+            <div class="noscriptoverlay"></div>
+            <h2 class="noscripttext">This website uses JavaScript, which you have not enabled. Please enable JavaScript to use this website.</h2>
+        </noscript>
 
         <dialog id="alert-box">
             <h2 id="dialog-title">Title</h2>
@@ -66,9 +69,9 @@
 
             <label for="alert_text">Alert Box Text:</label><br><textarea text-editor name="alert_text" id="alert_text"></textarea><br>
 
-            <label for="dialog_background">Alert Background Colour:</label><input type="color" name="dialog_background" id="dialog_background"><br>
+            <label for="dialog_background">Alert Background Colour:</label><input type="color" name="dialog_background" id="dialog_background" value="#007890"><br>
 
-            <label for="dialog_text">Alert Text Colour:</label><input type="color" name="dialog_text" id="dialog_text" value="#0000ff"><br>
+            <label for="dialog_text">Alert Text Colour:</label><input type="color" name="dialog_text" id="dialog_text" value="#000000"><br>
 
             <br><button type="submit" id="update-alert-box">Update Alert</button><hr><br>
         </form>
